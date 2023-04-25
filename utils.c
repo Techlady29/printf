@@ -8,7 +8,10 @@
 
 int is_printable(char c)
 {
-return (c >= 32 && c < 127 ? 1 : 0);
+	if (c >= 32 && c < 127)
+		return (1);
+
+return (0);
 }
 
 /**
@@ -21,8 +24,9 @@ return (c >= 32 && c < 127 ? 1 : 0);
 
 int append_hexa_code(char ascii_code, char buffer[], int i)
 {
+
 char map_to[] = "0123456789ABCDEF";
-/** The hexa format code is always 2 digits long */
+/* The hexa format code is always 2 digits long */
 
 if (ascii_code < 0)
 	ascii_code *= -1;
@@ -44,11 +48,15 @@ return (3);
 
 int is_digit(char c)
 {
-return (c >= '0' && c <= '9' ? 1 : 0);
+
+if (c >= '0' && c <= '9')
+	return (1);
+
+return (0);
 }
 
 /**
- * convert_size_number - this casts a number to the specifer
+ * convert_size_number - this casts a number to the specified size
  * @num: number to be casted
  * @size: number indicating the type to be casted
  * Return: casted value of num
@@ -56,7 +64,13 @@ return (c >= '0' && c <= '9' ? 1 : 0);
 
 long int convert_size_number(long int num, int size)
 {
-return (size == S_LONG ? num : (size == S_short ? (short)num : (int)num));
+
+if (size == S_LONG)
+	return (num);
+else if (size == S_SHORT)
+	return ((short)num);
+
+return ((int)num);
 }
 
 /**
@@ -68,21 +82,11 @@ return (size == S_LONG ? num : (size == S_short ? (short)num : (int)num));
 
 long int convert_size_unsgnd(unsigned long int num, int size)
 {
-return (size == S_LONG ? num : (size == S_SHORT ? (unsigned short)num :
-	(unsigned int)num));
-}
+if (size == S_LONG)
+	return (num);
+else if (size == S_SHORT)
+	return ((unsigned short)num);
 
-/**
- * convert_size_unsgnd - casts a number to the specified size
- * @num: number to be casted
- * @size: number indicating the type to be casted
- * Return: casted value of num
- */
-
-long int convert_size_unsgnd(unsigned long int num,
-	int size)
-{
-return (size == S_LONG ? num : (size == S_SHORT ?
-	(unsinged short)num : (unsigned int)num));
+return ((unsigned int)num);
 }
 

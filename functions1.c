@@ -123,7 +123,7 @@ int print_hexa_upper(va_list args, char buffer[], int flags,
 		int wdth, int prc, int sz)
 
 {
-return (print_hexa_upper(args, "0123456789ABCDEF", buffer, flags,
+return (print_hexa(args, "0123456789ABCDEF", buffer, flags,
 	'X', wdth, prc, sz));
 }
 
